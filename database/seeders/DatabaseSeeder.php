@@ -39,8 +39,37 @@ class DatabaseSeeder extends Seeder
             'name' => 'Travel dan Petualangan',
             'slug' => 'travel-dan-petualangan',
         ]);
+        Category::create([
+            'name' => 'Kuliner dan Resep',
+            'slug' => 'kuliner-dan-resep',
+        ]);
+
+      
 
         Post::factory(20)->create();
+        
+        //  // Membuat postingan secara spesifik di kategori "Kuliner dan Resep"
+        //  Post::factory()->count(15)->create([
+        //     'category_id' => Category::where('slug', 'kuliner-dan-resep')->first()->id
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Resep Mie Goreng Lezat',
+        //     'slug' => 'resep-mie-goreng-lezat',
+        //     'excerpt' => 'Ini adalah resep mie goreng yang sangat lezat dan mudah dibuat.',
+        //     'content' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, libero similique quis eius officia dignissimos?',
+        //     'category_id' => 3,
+        //     'user_id' => 1,
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Cara Membuat Soto Ayam',
+        //     'slug' => 'cara-membuat-soto-ayam',
+        //     'excerpt' => 'Panduan lengkap cara membuat soto ayam yang enak dan lezat.',
+        //     'content' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, libero similique quis eius officia dignissimos?',
+        //     'category_id' => 3,
+        //     'user_id' => 2,
+        // ]);
 
         // Post::create([
         //     'title' => 'Judul Pertama',
