@@ -8,7 +8,7 @@
   <div class="row justify-content-center">
     @foreach ($categories as $category)
     <div class="col-md-4 mb-4">
-      <a href="/categories/{{ $category->slug }}">
+      <a href="/blog?category={{ $category->slug }}">
       <div class="card text-center h-100">
         <img src="https://via.placeholder.com/500x500" class="card-img-top" alt="{{ $category->name }}">
         <div class="card-body">
