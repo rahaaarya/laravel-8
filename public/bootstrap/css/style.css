@@ -1,0 +1,71 @@
+.form-signin {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+    border: 2px solid #ced4da;
+    transition: border-color 0.3s;
+}
+
+.form-signin input[type="email"]:focus,
+.form-signin input[type="password"]:focus {
+    border-color: #495057;
+}
+
+.form-signin label {
+    font-weight: bold;
+}
+
+.form-signin button {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    border: none;
+    transition: background 0.3s;
+}
+
+.form-signin button:hover {
+    background: linear-gradient(45deg, #0056b3, #00a3cc);
+}
+
+.form-registration {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-registration .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-registration input[type="email"],
+.form-registration input[type="password"] {
+    border: 2px solid #ced4da;
+    transition: border-color 0.3s;
+}
+
+.form-registration input[type="email"]:focus,
+.form-registration input[type="password"]:focus {
+    border-color: #495057;
+}
+
+.form-registration label {
+    font-weight: bold;
+}
+
+.form-registration button {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    border: none;
+    transition: background 0.3s;
+}
+
+.form-registration button:hover {
+    background: linear-gradient(45deg, #0056b3, #00a3cc);
+}
