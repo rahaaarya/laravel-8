@@ -10,17 +10,30 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
+
+    @if (session()->has('loginError'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+     {{ session('loginError') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     
-    <main class="form-signin w-100 m-auto text-center">
+    <main class="form-signin">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      <form>
+      <form action="/login" method="POST">
+        @csrf
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-          <label for="floatingInput"><i class="bi bi-envelope-fill"></i> Email address</label>
-        </div>
+          <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="email" value="{{ old('email') }}" required>
+          <label for="email"><i class="bi bi-person-vcard"></i> Email Addres </label>
+          @error('email')
+              <div class="invalid-feedback">
+                  {{ $message }}
+              </div>
+          @enderror
+      </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword"><i class="bi bi-lock-fill"></i> Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+          <label for="password"><i class="bi bi-lock-fill"></i> Password</label>
         </div>
         <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
       </form>
