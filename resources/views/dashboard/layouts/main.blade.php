@@ -10,6 +10,14 @@
     
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    {{-- Trix Editor --}}
+  
+      <link rel="stylesheet" type="text/css" href="/css/trix.css">
+      <script type="text/javascript" src="/js/trix.umd.min.js"></script>
+   
+     
+
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -118,9 +126,9 @@
 <div class="container-fluid">
   <div class="row">
    @include('dashboard.layouts.sidebar')
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      @yield('container')
-    </main>
+   <main class="main-content col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    @yield('container')
+  </main>
   </div>
 </div>
 

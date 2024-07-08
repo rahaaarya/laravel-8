@@ -14,12 +14,12 @@ class PostController extends Controller
     
         if (request('category')) {
             $category = Category::firstWhere('slug', request('category'));
-            $title = 'Posts in ' . $category->name;
+            $title = ' in ' . $category->name;
         }
     
         if (request('author')) {
             $author = User::firstWhere('username', request('author'));
-            $title = 'Posts by ' . $author->name;
+            $title = ' by Author : ' . $author->name;
         }
     
         return view('posts', [

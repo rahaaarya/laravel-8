@@ -5,8 +5,13 @@
   <h1 class="h2">My Posts</h1>
 </div>
 
+@if (session()->has('success'))
+<div class="alert alert-success" role="alert">
+  {{ session('success') }}
+</div>
+@endif
 
-<div class="table-responsive col-lg-10">
+<div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
@@ -14,7 +19,7 @@
         <th scope="col">Title</th>
         <th scope="col">Category</th>
         <th scope="col">Action</th>
-      </tr>
+      </tr>   
     </thead>
     <tbody>
       @foreach ($posts as $post)
@@ -22,19 +27,17 @@
         <td>{{ $loop->iteration }}</td>
         <td>{{ $post->title }}</td>
         <td>{{ $post->category->name }}</td>
-       <td class="d-flex">
-        <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info mx-2 px-1" style="width:3em"><span class="bi bi-eye-fill"></span></a>
-        <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-warning mx-2 px-1" style="width:3em"><span class="bi bi-pencil-square"></span></a>
-        <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-danger mx-2 px-1" style="width:3em"><span class="bi bi-trash3"></span></a>
-       </td>
-        
-        
+        <td class="d-flex">
+          <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info mx-2 px-1" style="width:3em"><span class="bi bi-eye-fill"></span></a>
+          <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-warning mx-2 px-1" style="width:3em"><span class="bi bi-pencil-square"></span></a>
+          <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-danger mx-2 px-1" style="width:3em"><span class="bi bi-trash3"></span></a>
+        </td>
       </tr>
       @endforeach
-  
     </tbody>
   </table>
 </div>
 
+<a href="/dashboard/posts/create" class="btn btn-primary mb-3"><i class="bi bi-plus"></i> Create new post</a>
 
 @endsection
