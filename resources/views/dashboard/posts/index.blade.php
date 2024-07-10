@@ -12,6 +12,7 @@
 @endif
 
 <div class="table-responsive">
+  <a href="/dashboard/posts/create" class="btn btn-primary mb-3"><i class="bi bi-plus"></i> Create new post</a>
   <table class="table table-striped table-sm">
     <thead>
       <tr>
@@ -28,9 +29,14 @@
         <td>{{ $post->title }}</td>
         <td>{{ $post->category->name }}</td>
         <td class="d-flex">
-          <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info mx-2 px-1" style="width:3em"><span class="bi bi-eye-fill"></span></a>
-          <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-warning mx-2 px-1" style="width:3em"><span class="bi bi-pencil-square"></span></a>
-          <a href="/dashboard/posts/{{ $post->id }}" class="btn btn-danger mx-2 px-1" style="width:3em"><span class="bi bi-trash3"></span></a>
+          <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info me-2"><span class="bi bi-eye-fill"></span></a>
+          <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning me-2"><span class="bi bi-pencil-square"></span></a>
+          
+          <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+          @method('DELETE')
+          @csrf
+          <button class="btn btn-danger" onclick="return confirm('Are you sure')"><span class="bi bi-trash3"></span></button>
+          </form>
         </td>
       </tr>
       @endforeach
@@ -38,6 +44,6 @@
   </table>
 </div>
 
-<a href="/dashboard/posts/create" class="btn btn-primary mb-3"><i class="bi bi-plus"></i> Create new post</a>
+
 
 @endsection
