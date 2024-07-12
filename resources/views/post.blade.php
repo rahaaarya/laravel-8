@@ -12,11 +12,17 @@
         {{ $post->created_at->diffForHumans() }}
       </p>
 
-      <div class="text-center my-4">
-        <img src="https://via.placeholder.com/1200x400" class="img-fluid rounded" alt="Placeholder Image">
-      </div>
+      @if ($post->image)
+        <div class="text-center" style="max-height: 350px; overflow:hidden;" >
+          <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid rounded"alt="{{ $post->category->name }}">
+        </div>
+        @else
+        <div class="text-center">
+          <img src="https://via.placeholder.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid rounded" alt="Placeholder Image">
+        </div>
+        @endif
 
-      <article class="my-4 fs-5">
+      <article class="fs-5">
         {!! $post->content !!}
       </article>
 
